@@ -6,17 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.UUID;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class IhaDto implements Serializable {
-
+public class RentDto implements Serializable {
     private UUID id;
-    private String brand;
-    private String model;
-    private BigDecimal weight;
-    private String category;
+    private LocalDate startDate;
+    private LocalDate finshDate;
+
 }

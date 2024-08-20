@@ -5,27 +5,31 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
-@Table(name = "user")
+@Table(name = "rent")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
 
+public class Rent {
     @Id
     @Column(name = "id")
     private UUID id;
 
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "start_date")
+    private LocalDate startDate;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "finsh_date")
+    private LocalDate finshDate;
 
-    @OneToMany(mappedBy = "user")
-    private Set<Rent> rent;
-    //Todo:rol eklenicek
+    @ManyToOne
+    private User user;
+
+    @ManyToOne
+    private Iha iha;
+
+
 }

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Set;
 import java.util.UUID;
 
@@ -19,11 +20,17 @@ public class User {
     @Column(name = "id")
     private UUID id;
 
+    @Column(name = "version")
+    private Long version;
+
     @Column(name = "user_name")
     private String userName;
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "password_date")
+    private LocalDate passwordDate;
 
     @OneToMany(mappedBy = "user")
     private Set<Rent> rent;
